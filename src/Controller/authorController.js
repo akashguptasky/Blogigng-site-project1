@@ -47,9 +47,9 @@ const createAuthor = async (req, res) => {
         //deny empty data request {}
         let arrKeys = Object.keys(data);
         if (arrKeys.length == 0) return res.status(400).send({ status: true, msg: "Data is required" })
-
         //  checking that required key is present or not
         if (!data.fname) return res.status(400).send({ status: false, msg: "fname is required" })
+       
         if (!data.lname) return res.status(400).send({ status: false, msg: "lname is required" })
         if (!data.title) return res.status(400).send({ status: false, msg: "title is required" })
         if (!data.email) return res.status(400).send({ status: false, msg: "email is required" })
@@ -64,7 +64,7 @@ const createAuthor = async (req, res) => {
 
         // email format is valid or not by using isVerifyString()
         if (!validateEmail(data.email)) return res.status(400).send({ status: false, msg: "invalid email" })
-        // fname and lname and title is proper syntax
+        // fname and lname and title is proper syntax if digit contains --> true otherwise return false
         if (isVerifyString(data.fname)) return res.status(400).send({ status: false, msg: "fname doesn't contains any digit" })
         if (isVerifyString(data.lname)) return res.status(400).send({ status: false, msg: "lname doesn't contains any digit" })
         if (isVerifyString(data.title)) return res.status(400).send({ status: false, msg: "title doesn't contains any digit" })

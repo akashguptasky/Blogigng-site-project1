@@ -1,11 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const route = require('../src/Route/route');
+// kisi bhi chezz ko call krne ke liye or dependenci ko call krne ke liye node se
+const route = require('./Route/route');
 const { default: mongoose } = require('mongoose');
 const app = express();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(express.json())
 
 
 
